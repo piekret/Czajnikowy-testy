@@ -1,0 +1,247 @@
+﻿Testy - Czajnikowy.com.pl
+
+
+ID: TC-CZA-001
+Tytuł: Spójność elementów globalnych (koszyk, wyszukiwarka itp.)
+Cel: Potwierdzenie, że elementy globalne są widoczne i działają poprawnie
+Założenia: Użytkownik niezalogowany, koszyk pusty
+Dane testowe: Brak
+Kroki:
+* Wejście na stronę główną
+* Weryfikacja obecności elementów: Wyszukiwarka, “Logowanie / Zarejestruj się” i Koszyk
+* Kliknięcie “Logowanie / Zarejestruj się”
+* Weryfikacja obecności pop up’u z sekcjami logowania i rejestracji
+* Kliknięcie w koszyk
+* Weryfikacja otworzenia i się koszyka i widoczny jest komunikat o pustym koszyku
+Oczekiwany wynik: Elementy globalne są dostępne i prowadzą do prawidłowych podstron
+
+
+ID: TC-CZA-002
+Tytuł: Funkcjonalność kategorii: sortowanie, filtry cen, liczba wyników
+Cel: Zweryfikować że listing kategorii poprawnie działa i umożliwia sortowanie, filtry cen i poprawnie wyświetla wyniki
+Założenia: Użytkownik niezalogowany
+Dane testowe: Zakres ceny
+Kroki:
+* Wejście do kategorii “Herbata Czarna” w sklepie
+* Potwierdzenie, czy widoczne jest “Wyświetlanie 1-12 z … wyników”, opcje sortowania i filtr ceny
+* Testowanie każdej opcji sortowania
+* Po każdej zmianie, potwierdzenie, że lista się przeładowała i sortowanie się zmieniło
+* Ustawienie filtra ceny (np. min/max) i kliknięcie “filtruj”
+* Weryfikacja działania filtra
+Oczekiwany wynik: Możliwość poprawnego sortowania, filtrowania po cenie
+
+
+ID: TC-CZA-003
+Tytuł: Wyszukiwanie produktów: trafność, sortowanie, filtr ceny
+Cel: Potwierdzenie, że wyszukiwarka działa poprawnie, pokazuje liczbę wyników i umożliwia sortowanie i filtrowanie
+Założenia: Użytkownik niezalogowany
+Dane testowe: Fraza “matcha”
+Kroki:
+* Wpisanie “matcha” w wyszukiwarkę
+* Weryfikacja otworzenia się strony wyników
+* Zmiana sortowania
+* Ustawienie filtra ceny i zastosowanie
+* Scenariusz negatywny: wyszukanie losowej frazy dla której będzie brak produktów
+* Weryfikacja braku wyników
+Oczekiwany wynik: Dla frazy “matcha” poprawnie wyświetlają się wyniki wyszukiwania
+z możliwością sortowania i filtrowania
+ID: TC-CZA-004
+Tytuł: Karta produktu: komplet informacji
+Cel: Sprawdzenie, czy karta produktu dostępnego zawiera informacje (nazwa, cena, opis itp) i czy da się go dodać do koszyka
+Założenia: Użytkownik niezalogowany, produkt testowy aktualnie dostępny (“Na stanie”)
+Dane testowe: Przykładowy produkt: np. “Herbata czarna Rwanda PEKOE Rukeri 50g …”
+Kroki:
+* Otworzenie karty przykładowego produktu
+* Weryfikacja widoczności nazwy produktu, ceny i opisu
+* Weryfikacja stanu “Na stanie”
+* Sprawdzenie obecności pola ilości i akcji “Dodaj do koszyka”
+Oczekiwany wynik: Produkt dostępny i widoczna cena, opis, status “Na stanie” i przycisk “Dodaj do koszyka”
+
+
+ID: TC-CZA-005
+Tytuł: Karta produktu “Brak w magazynie” i “Powiadom o dostępności”
+Cel: Sprawdzenie zachowania karty produktu niedostępnego i funkcji “Powiadom”
+Założenia: Użytkownik niezalogowany, produkt przykładowy oznaczony jako “Brak w magazynie”
+Dane testowe: Przykładowy produkt niedostępny: np “Herbata czarna Caykur Altinbas turecka 500g …”
+Kroki:
+* Otworzenie karty produktu
+* Weryfikacja, że status “Brak w magazynie” jest widoczny
+* Weryfikacja, że zamiast przycisku “Dodaj do koszyka” jest przycisk “Powiadom”
+* Kliknięcie “Powiadom”
+* Weryfikacja pojawienia się pop up’u z polem na email i ilość)
+Oczekiwany wynik: Dla produktu widoczne są “Brak w magazynie” i “Powiadom”, akcja “Powiadom” umożliwia wpisanie email’a
+
+
+ID: TC-CZA-006
+Tytuł: Koszyk: stan pusty + podstawowe operacje
+Cel: Sprawdzenie obsługi koszyka
+Założenia: Użytkownik niezalogowany, koszyk pusty
+Dane testowe: Przykładowy produkt: np. “Herbata czarna Rwanda PEKOE Rukeri 50g …”
+Kroki:
+* Dodanie produktu przykładowego do koszyka
+* Przejście do koszyka i weryfikacja produktu w środku
+* Zmiana ilości
+* Weryfikacja przeliczenia sumy
+* Usunięcie produktu z koszyka
+Oczekiwany wynik: 
+* Pusty koszyk pokazuje komunikat i przycisk “Wróć do sklepu”
+* Poprawnie funkcjonujący koszyk
+
+
+
+
+
+
+
+
+ID: TC-CZA-007
+Tytuł: Checkout: kontrola dostępu
+Cel: Zweryfikowanie, braku możliwości przejścia do checkoutu bez produktów
+Dane testowe: Brak
+Założenia: Użytkownik niezalogowany, koszyk pusty
+Kroki:
+* Otwórz stronę zamówienia/checkout (/zamowienie)
+* Weryfikacja przekierowania do koszyka
+* Weryfikacja komunikatu pustego koszyka
+Oczekiwany wynik: Dla pustego koszyka wejście na checkout prowadzi do koszyka z komunikatem pustego koszyka
+
+
+ID: TC-CZA-008
+Tytuł: Checkout: dane do wysyłki i walidacja pól wymaganych
+Cel: Weryfikacja poprawnego działania formularza wysyłki
+Założenia: Użytkownik niezalogowany, w koszyku co najmniej 1 produkt
+Dane testowe: przykładowy adres i dane kontaktowe (spełniające wymagania pól)
+Kroki:
+* Przejście z koszyka do formularza zamówienia
+* Próba przejścia dalej z pustymi polami
+* Weryfikacja komunikatów walidacji
+* Wpisanie danych testowych
+* Przejście dalej na strony dostawy/płatności
+Oczekiwany wynik:
+* Checkout wymaga danych do wysyłki przed finalizacją
+* Walidacja blokuje przejście przy brakach
+
+
+
+
+ID: TC-CZA-009
+Tytuł: Checkout: metody dostawy, cennik i darmowa dostawa
+Cel: Potwierdzenie, że w checkout dostępne są metody dostawy i koszty zgodne z produktami i darmowa dostawa od 300 PLN
+Założenia: Użytkownik niezalogowany, 2 koszyki: <300 PLN i >= 300 PLN
+Dane testowe: 2 warianty koszyka: <300 PLN i >= 300 PLN
+Kroki:
+* Przejście do checkout i znalezienie sekcji wyboru metody dostawy
+* Weryfikacja obecności metod i cen
+* Wariant 1: koszyk <300 PLN - sprawdzenie, że koszt dostawy jest wliczony
+* Wariant 2: koszyk >=300 PLN - sprawdzenie, że dostawa jest darmowa
+Oczekiwany wynik: Checkout prezentuje metody dostawy i ceny i jest darmowa dostawa od 300 PLN za zamówienie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ID: TC-CZA-010
+Tytuł: Checkout: metody płatności + przekierowanie do operatora płatności online
+Cel: Weryfikacja dostępności metod płatności i przekierowania do operatora płatności
+Założenia: Koszyk z produktami
+Dane testowe: testowe dane płatności
+Kroki:
+* Przejście do sekcji wyboru płatności
+* Sprawdzenie, czy dostępne są co najmniej: przelew tradycyjny, karta i płatności szybkie
+* Wybranie metody płatności i przejście do finalizacji
+* Weryfikacja, czy poprawnie przekierowało do operatora
+Oczekiwany wynik: Poprawnie działające metody płatności
+
+
+ID: TC-CZA-011
+Tytuł: Konto: rejestracja
+Cel: Zweryfikować rejestrację konta
+Założenia: Użytkownik niezalogowany, ma poprawny email
+Dane testowe: nazwa: testowy, hasło: testowe
+Kroki:
+* Wejście na stronę rejestracji
+* W sekcji “Zarejestruj się” weryfikacja widoczności pól wymaganych
+* Wypełnienie formularza
+* Weryfikacja utworzenia konta
+Oczekiwany wynik: Rejestracja wymaga pól oznaczonych jako wymagane, poprawnie działająca rejestracja
+
+
+ID: TC-CZA-012
+Tytuł: Konto: Logowanie, walidacja, “Zapamiętaj mnie”, wylogowanie
+Cel: Sprawdzenie poprawności logowania, zapamiętywania użytkownika i wylogowywania
+Założenia: Istnieje konto testowe
+Dane testowe: konto testowe, hasło testowe
+Kroki:
+* Wejście na stronę z logowaniem
+* Wpisanie błędnych danych w formularzu po czym próba zalogowania
+* Weryfikacja komunikatu błędu
+* Zalogowanie się z prawidłowymi danymi bez zaznaczenia “Zapamiętaj mnie”, wyłączenie przeglądarki i sprawdzenie czy sesja wygasła
+* Zalogowanie się z zaznaczeniem “Zapamiętaj mnie”, wyłączenie przeglądarki i sprawdzenie czy sesja jest utrzymana
+* Wylogowanie się
+Oczekiwany wynik: Formularz logowania, “Zapamiętaj mnie” działają poprawnie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ID: TC-CZA-013
+Tytuł: Konto: resetowanie hasła
+Cel: Zweryfikowanie poprawnego działania mechanizmu resetowania hasła
+Założenia: Istnieje konto testowe powiązane z emailem do którego tester ma dostęp
+Dane testowe: email istniejący + nieistniejący
+Kroki:
+* Kliknięcie “Nie pamiętasz hasła?” na stronie z Logowaniem/Rejestracją
+* Sprawdzenie czy pojawia się formularz + przycisk “Zresetuj hasło”
+* Wpisanie błędnego emaila i wysłanie resetu
+* Weryfikacja komunikatu błędnych danych
+* Wpisanie poprawnego emaila i wysłanie
+* Odebranie wiadomości email i przejście przez ustawianie nowego hasła
+Oczekiwany wynik: Serwis prowadzi użytkownika przez standardowy proces resetowania hasła
+
+
+ID: TC-CZA-014
+Tytuł: Cookies i zgody: zgodność banera z polityką prywatności i wpływ na koszyk
+Cel: Weryfikacja działania banera cookies (akceptacja, odmowa, preferencje) i wpływ ograniczeń na koszyk
+Założenia: Użytkownik niezalogowany, wyczyszczone cookies/storage w przeglądarce
+Dane testowe: Brak
+Kroki:
+* Odpalenie strony z wyczyszczonymi danymi przeglądarki
+* Weryfikacja wyświetlenia się baneru “Zarządzaj zgodą na ciastka”
+* Wariant 1: Kliknięcie “Odmawiam”
+* Próba dodania losowego produktu do koszyka
+* Sprawdzenie czy koszyk działa
+* Wariant 2: Kliknięcie “Akceptuje”
+* Weryfikacja, czy ciastka analityczne uruchamiają się dopiero po zgodzie (devtools)
+Oczekiwany wynik: Baner cookies umożliwia zarządzanie zgodami, ciastka analityczne nie są instalowane bez zgody
+
+
+ID: TC-CZA-015
+Tytuł: Wydajność i responsywność
+Cel: Ocena wydajności i zachowania RWD dla kluczowych stron ścieżki zakupowej
+Założenia: Dwa profile urządzeń: desktop i mobile, zgoda/odmówienie cookies
+Dane testowe: Brak
+Kroki:
+* Otworzenie na desktop: strona główna, lista produktów, karta produktu, koszyk, strona wyników wyszukiwania i “Moje konto”
+* Zmierzenie dla każdej strony: czas do interaktywności i stabilności renderowania
+* Powtórzenie kroków na mobile
+* Sprawdzenie czy elementy kluczowe (wyszukiwarka, konto, koszyk) poprawnie działają
+* Identyfikacja miejsc problematycznych
+Oczekiwany wynik: Strony kluczowe renderują się stabilnie i pozostają używalne na desktop i mobile, elementy nawigacji ścieżki zakupowej są dostępne również na urządzeniach mobilnych
