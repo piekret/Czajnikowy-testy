@@ -71,8 +71,7 @@ Examples of tested scenarios:
 │   └── example.spec.ts
 │
 ├── utils/
-│   ├── cookies.ts
-│   └── test-data.ts
+│   └── fixtures.ts
 │
 ├── playwright.config.ts
 ├── package.json
